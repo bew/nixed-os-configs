@@ -64,6 +64,30 @@
     '';
   };
 
+  # interception-tools' pipeline can be very flexible
+  # doc: https://gitlab.com/interception/linux/tools
+  services.interception-tools = {
+    enable = true;
+    plugins = [pkgs.interception-tools-plugins.caps2esc];
+    # For some reason PATH isn't passed to job specified in the config
+    # This is tracked in these issues:
+    # - https://github.com/NixOS/nixpkgs/issues/126681
+    # - https://gitlab.com/interception/linux/tools/-/issues/58
+    # So we specify full path to the various tools in config for now.
+    udevmonConfig = let
+      caps2esc = pkgs.interception-tools-plugins.caps2esc;
+      interception-tools = pkgs.interception-tools;
+    in /* yaml */ ''
+      # note on caps2esc usage:
+      # -t N : delay used for key sequences (in micro seconds)
+      # -m 1 : minimal mode: caps as esc/ctrl
+      - JOB: "${interception-tools}/bin/intercept -g $DEVNODE | ${caps2esc}/bin/caps2esc -t 5000 -m 1 | ${interception-tools}/bin/uinput -d $DEVNODE"
+        DEVICE:
+          EVENTS:
+            EV_KEY: [KEY_CAPSLOCK]
+    '';
+  };
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
