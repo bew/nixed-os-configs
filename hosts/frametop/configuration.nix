@@ -10,6 +10,19 @@
     ./hardware-configuration.nix
   ];
 
+  # IDEA: 'options' that act as hardware reference, to be able to access the hardware info in a pure way at eval time,
+  # to allow writing this option relative to hardware info:
+  # nix.settings.cores = config.hardware-reference.cpuCount / 2;
+  nix.settings.cores = 8;
+
+  nix.gc = {
+    automatic = true; # Let's try!
+    dates = "weekly";
+    # NOTE: Ideally I'd like to keep at least the last N known-to-work configs
+    # See related notes in 20220919T2145 to tag working config.
+    options = "--delete-old --delete-older-than 30d";
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
