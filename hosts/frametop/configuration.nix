@@ -54,6 +54,15 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
+  services.xserver.libinput.touchpad = {
+    disableWhileTyping = true;
+    tappingDragLock = false; # It's just annoying to have it and be surprised when doing fast movements..
+    additionalOptions = ''
+      # Tapping with 1/2/3 fingers give left/middle/right buttons respectively
+      # Ref: https://wiki.archlinux.org/title/libinput#Tapping_button_re-mapping
+      Option "TappingButtonMap" "lmr"
+    '';
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
