@@ -101,6 +101,8 @@
 
   services.flatpak.enable = true;
 
+  programs.kdeconnect.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bew = {
     isNormalUser = true;
