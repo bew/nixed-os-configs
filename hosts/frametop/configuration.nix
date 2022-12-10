@@ -8,6 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/for-zsa-keyboards.nix
   ];
 
   # IDEA: 'options' that act as hardware reference, to be able to access the hardware info in a pure way at eval time,
@@ -30,7 +31,7 @@
   boot.tmpOnTmpfs = true;
   boot.tmpOnTmpfsSize = "4G";
 
-  networking.hostName = "frametop-nixos"; # Define your hostname.
+  networking.hostName = "frametop";
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   time.timeZone = "Europe/Paris";
