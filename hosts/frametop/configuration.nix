@@ -37,6 +37,18 @@
   time.timeZone = "Europe/Paris";
 
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = let
+    nativeLang = "fr_FR.UTF-8";
+  in {
+    LC_ALL = "C";
+    LC_MEASUREMENT = nativeLang;
+    LC_MONETARY = nativeLang;
+    LC_NUMERIC = nativeLang;
+    LC_PAPER = nativeLang;
+    LC_TELEPHONE = nativeLang;
+    LC_TIME = nativeLang;
+  };
+
   console = {
     font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions for keymap in tty
