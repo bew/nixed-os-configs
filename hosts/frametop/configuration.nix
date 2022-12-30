@@ -125,6 +125,7 @@
     extraGroups = [ "wheel" ]; # Enable *sudo* for the user.
     packages = with pkgs; [
       firefox
+      kdenlive
     ];
   };
 
@@ -134,7 +135,8 @@
     wget
     git
 
-    kdenlive
+    gparted
+    ntfs3g
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest; # TODO: pin?
