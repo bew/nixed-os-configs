@@ -133,6 +133,8 @@
     vim # at the very least
     wget
     git
+
+    kdenlive
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest; # TODO: pin?
