@@ -134,6 +134,9 @@
     vim # at the very least
     wget
     git
+    zip
+    unzip
+    _7zz # 7z (not sure why the drv is named that way...)
 
     gparted
     ntfs3g
