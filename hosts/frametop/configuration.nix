@@ -71,7 +71,20 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
   services.xserver.libinput.touchpad = {
+    # FIXME: Is there a way to configure the timeout until the touchpad is re-enabled again?
+    #   Or a way to disable taps for a bit longer? (drag is not an issue)
+    # On the Framework, the touchpad is BIG, and not exactly centered w.r.t. `f` & `j` keys,
+    # and when I type, the internal edge of my right palm is actually over the touchpad.
+    # => It happens too often that I tap the touchpad with it by mistake,
+    #    moving the cursor to unwanted / surprising locations..
+    # Disabling mouse action in vim's insert mode is not enough,
+    # it also happens on normal mode, and can be destructive!
+    #
+    # Upstream feature request issues:
+    # - https://gitlab.freedesktop.org/libinput/libinput/-/issues/379
+    # - https://gitlab.freedesktop.org/libinput/libinput/-/issues/619
     disableWhileTyping = true;
+
     tappingDragLock = false; # It's just annoying to have it and be surprised when doing fast movements..
     additionalOptions = ''
       # Tapping with 1/2/3 fingers give left/middle/right buttons respectively
@@ -95,13 +108,20 @@
       interception-tools = pkgs.interception-tools;
     in /* yaml */ ''
       # note on caps2esc usage:
-      # -t N : delay used for key sequences (in micro seconds)
       # -m 1 : minimal mode: caps as esc/ctrl
-      - JOB: "${interception-tools}/bin/intercept -g $DEVNODE | ${caps2esc}/bin/caps2esc -t 5000 -m 1 | ${interception-tools}/bin/uinput -d $DEVNODE"
+      - JOB: "${interception-tools}/bin/intercept -g $DEVNODE | ${caps2esc}/bin/caps2esc -m 1 | ${interception-tools}/bin/uinput -d $DEVNODE"
         DEVICE:
           EVENTS:
             EV_KEY: [KEY_CAPSLOCK]
     '';
+    # NOTE: `-t` didn't do what I thought, it's not the held-timeout behavior I want,
+    #   it's just the time generated keys are held (20 micro-seconds by default (=> 0.02s or 20ms))
+    #
+    # TODO: port `caps2esc` to Rust, and implement held-timeout behavior!
+    # * (?) Rename to caps2ctrlesc
+    # * Support mouse inputs, as documented at:
+    #   https://gitlab.com/interception/linux/plugins/caps2esc#mousetouchpad-support
+    #   => Allows Ctrl-click to work with held caps key!
   };
 
   # Enable CUPS to print documents.
@@ -113,6 +133,18 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    # FIXME: When connecting to an HDMI monitor (over USB-C hub, didn't test without),
+    # the HDMI audio profile is not activated by default.
+    # When I activate it, and later disconnect the monitor, the audio doesn't auto switch
+    # back to `Analog Stereo Duplex`.
+    #
+    # This issue was mentionned in NixOS's Tracking issue for pipewire:
+    # https://github.com/NixOS/nixpkgs/issues/102547#issuecomment-1277892311
+    # (with next comments giving some info, not tried yet)
+    #
+    # Upstream issues that might be related: (I subscribed to them)
+    # - https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/2545
+    # - https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/2951
   };
 
   services.flatpak.enable = true;
