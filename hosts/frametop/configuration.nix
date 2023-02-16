@@ -176,6 +176,12 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest; # TODO: pin?
 
+  # This will regularly tell the SSD which blocks are deleted on the filesystem side,
+  # so these blocks can be used for other things by the SSD controller.
+  # => Helps SSD performance & lifespan!
+  # See: https://en.wikipedia.org/wiki/Trim_(computing)
+  services.fstrim.enable = true; # Runs weekly
+
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.intel.updateMicrocode = true;
 
