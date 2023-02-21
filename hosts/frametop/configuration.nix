@@ -182,6 +182,11 @@
   # See: https://en.wikipedia.org/wiki/Trim_(computing)
   services.fstrim.enable = true; # Runs weekly
 
+  # Let's monitor my PC!
+  # TODO(later): send metrics to some external server? cloud service?
+  #   and monitor some things?
+  services.netdata.enable = true;
+
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.intel.updateMicrocode = true;
 
