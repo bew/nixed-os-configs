@@ -63,7 +63,7 @@
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  
+
   # Configure keymap in X11
   services.xserver.layout = "fr";
   services.xserver.xkbOptions = "caps:escape"; # map caps to escape.
@@ -168,6 +168,7 @@
     git
     zip
     unzip
+    ark # a nice archive gui, usually used in KDE
     _7zz # 7z (not sure why the drv is named that way...)
 
     gparted
