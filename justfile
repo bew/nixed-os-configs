@@ -1,20 +1,20 @@
 _default:
   @{{just_executable()}} --list
 
-# Build NixOS config of current system (use config with name=`hostname`)
+# Build NixOS config of current system (use config with NAME=`hostname`)
 rebuild *ARGS:
   nixos-rebuild --flake . build {{ ARGS }}
 
-# Switch to NixOS config of current system  (use config with name=`hostname`)
+# Switch to NixOS config of current system  (use config with NAME=`hostname`)
 reswitch *ARGS:
-  echo NOTE: need sudo
+  echo NOTE: will need sudo to activate
   nixos-rebuild --flake . switch {{ ARGS }}
 
-# Build the given NixOS config name
-new-build NAME *ARGS:
+# Build the given NixOS config NAME
+dobuild NAME *ARGS:
   nixos-rebuild --flake .#{{ NAME }} build {{ ARGS }}
 
-# Switch system to the given NixOS config name
-new-switch NAME *ARGS:
-  echo NOTE: need sudo
+# Switch system to the given NixOS config NAME
+doswitch NAME *ARGS:
+  echo NOTE: will need sudo to activate
   nixos-rebuild --flake .#{{ NAME }} switch {{ ARGS }}
