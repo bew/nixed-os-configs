@@ -10,6 +10,11 @@
     ./hardware-configuration.nix
     ../../modules/for-zsa-keyboards.nix
     ../../modules/better-nix-settings.nix
+    # Disable the KDE file indexer `baloo`, when I add/delete/change a lot of small files
+    # (e.g: when cloning / compressing / deleting the nixpkgs repo) baloo seems to update
+    # its cache like crazy by writing 100M/s on the disk for many minutes (10-15?)...
+    # And I actually never use file search that needs pre-indexing, so bye bye o/
+    ../../modules/disable-kde-file-indexer.nix
   ];
 
   # IDEA: 'options' that act as hardware reference, to be able to access the hardware info in a pure way at eval time,
