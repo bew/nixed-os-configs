@@ -180,6 +180,11 @@
     ntfs3g
 
     appimage-run # to easily run downloaded appimage files
+
+    # Install with the system to ensure the same qt version is used,
+    # to avoid error on start.
+    # See <20230328T1209#incompatible-qt>
+    transmission-qt
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest; # TODO: pin?
