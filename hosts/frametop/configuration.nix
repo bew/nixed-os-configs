@@ -178,6 +178,8 @@
 
     gparted
     ntfs3g
+
+    appimage-run # to easily run downloaded appimage files
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest; # TODO: pin?
