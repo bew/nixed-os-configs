@@ -170,6 +170,7 @@
   environment.systemPackages = with pkgs; [
     vim # at the very least
     wget
+    file
     git
     zip
     unzip
