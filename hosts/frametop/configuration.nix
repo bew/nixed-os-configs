@@ -35,7 +35,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.tmpOnTmpfs = true;
-  boot.tmpOnTmpfsSize = "4G";
+  boot.tmpOnTmpfsSize = "10G";
 
   networking.hostName = "frametop";
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
