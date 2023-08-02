@@ -153,6 +153,18 @@
   };
 
   services.flatpak.enable = true;
+  # FIXME: Add a way to declaratively track & configure flatpak apps?
+  # Way to declare which remote repo of flatpaks to track (flathub / ..)
+  # Ways to declaratively describe which flatpaks I want to track? (system level / user level)
+  #   (and make wrappers or `@flat wrapper` to easily call them?)
+  #   Way to check / test an app work on upgrade?
+  #   Allow them to update themself using some flatpak cmds? or have a version/hash of a specific version I want?
+  # Could also setup overrides globally / per app:
+  #   https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-override
+  #
+  # This might be useful to better share system fonts & icons:
+  #   https://github.com/NixOS/nixpkgs/issues/119433#issuecomment-1326957279
+  #   although it might be simpler to use `mount --bind ...` call instead of `bindfs`
 
   programs.kdeconnect.enable = true;
 
@@ -161,8 +173,10 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable *sudo* for the user.
     packages = with pkgs; [
-      firefox
-      kdenlive
+      firefox # try via flatpak? (would that prevent use of home-manager's ff configs? (for tridactyl))
+      kdenlive # try via flatpak? (org.kde.kdenlive)
+
+      nomacs # try via flatpak? (org.nomacs.ImageLounge)
     ];
   };
 
@@ -183,9 +197,9 @@
     appimage-run # to easily run downloaded appimage files
 
     # Install with the system to ensure the same qt version is used,
-    # to avoid error on start.
+    # to avoid qt stuff loading error on start.
     # See <20230328T1209#incompatible-qt>
-    transmission-qt
+    transmission-qt # try via flatpak? (com.transmissionbt.Transmission)
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest; # TODO: pin?
