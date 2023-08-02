@@ -11,6 +11,9 @@ system-nixpkgs.lib.nixosSystem {
       services.fprintd.enable = false;
     })
 
+    ({
+      nix.registry.syspkgs.flake = system-nixpkgs;
+    })
     # My config!
     ./configuration.nix
   ];
