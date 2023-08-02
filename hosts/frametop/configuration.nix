@@ -202,7 +202,7 @@
     transmission-qt # try via flatpak? (com.transmissionbt.Transmission)
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest; # TODO: pin?
+  boot.kernelPackages = pkgs.linuxPackages_6_0;
 
   # This will regularly tell the SSD which blocks are deleted on the filesystem side,
   # so these blocks can be used for other things by the SSD controller.
