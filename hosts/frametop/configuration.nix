@@ -90,12 +90,14 @@
   services.xserver.libinput.touchpad = {
     # FIXME: Is there a way to configure the timeout until the touchpad is re-enabled again?
     #   Or a way to disable taps for a bit longer? (drag is not an issue)
+    #   -> Or even disable touchpad tap (click) when a non-modifier key is pressed until I drag the mouse around.
+    #      => TODO: open an dedicated issue for this?
     # On the Framework, the touchpad is BIG, and not exactly centered w.r.t. `f` & `j` keys,
     # and when I type, the internal edge of my right palm is actually over the touchpad.
     # => It happens too often that I tap the touchpad with it by mistake,
     #    moving the cursor to unwanted / surprising locations..
-    # Disabling mouse action in vim's insert mode is not enough,
-    # it also happens on normal mode, and can be destructive!
+    # Disabling mouse action in vim's insert mode is not enough, it also happens on normal mode and
+    # in other GUI programs, and have been destructive more than once!
     #
     # Upstream feature request issues:
     # - https://gitlab.freedesktop.org/libinput/libinput/-/issues/379
