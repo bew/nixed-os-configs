@@ -38,6 +38,16 @@
 
   boot.tmpOnTmpfs = true;
   boot.tmpOnTmpfsSize = "10G";
+  # Make nix-daemon use a larger directory than /tmp for builds
+  # ref: https://github.com/NixOS/nix/issues/2098
+  systemd = let nix-daemon-tmp-dir = "/nix/tmp"; in {
+    services.nix-daemon.environment.TMPDIR = nix-daemon-tmp-dir;
+    tmpfiles.rules = [
+      # https://discourse.nixos.org/t/27846/6
+      # https://www.freedesktop.org/software/systemd/man/tmpfiles.d.html
+      "d ${nix-daemon-tmp-dir} 0755 root root"
+    ];
+  };
 
   networking.hostName = "frametop";
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
