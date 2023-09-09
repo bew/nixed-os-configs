@@ -22,6 +22,8 @@
   # nix.settings.cores = config.hardware-reference.cpuCount / 2;
   nix.settings.cores = 8;
 
+  nix.settings.experimental-features = "nix-command flakes";
+
   nix.gc = {
     automatic = true; # Let's try!
     dates = "weekly";
