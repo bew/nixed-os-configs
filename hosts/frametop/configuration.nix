@@ -36,8 +36,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.tmpOnTmpfs = true;
-  boot.tmpOnTmpfsSize = "10G";
+  boot.tmp.useTmpfs = true;
+  boot.tmp.tmpfsSize = "10G";
   # Make nix-daemon use a larger directory than /tmp for builds
   # ref: https://github.com/NixOS/nix/issues/2098
   systemd = let nix-daemon-tmp-dir = "/nix/tmp"; in {
@@ -134,7 +134,7 @@
             EV_KEY: [KEY_CAPSLOCK]
     '';
     # NOTE: `-t` didn't do what I thought, it's not the held-timeout behavior I want,
-    #   it's just the time generated keys are held (20 micro-seconds by default (=> 0.02s or 20ms))
+    #   it's just the time generated keys are held (20 micro-seconds by default)
     #
     # TODO: port `caps2esc` to Rust, and implement held-timeout behavior!
     # * (?) Rename to caps2ctrlesc
@@ -216,7 +216,7 @@
     transmission-qt # try via flatpak? (com.transmissionbt.Transmission)
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_6_0;
+  boot.kernelPackages = pkgs.linuxPackages_6_5;
 
   # This will regularly tell the SSD which blocks are deleted on the filesystem side,
   # so these blocks can be used for other things by the SSD controller.
