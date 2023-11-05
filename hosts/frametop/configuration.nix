@@ -190,7 +190,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bew = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable *sudo* for the user.
+    # note: nice reference of system groups:
+    # https://wiki.debian.org/SystemGroups#Groups_without_an_associated_user
+    extraGroups = [
+      "wheel" # Enable *sudo* for the user.
+      "plugdev" # Allow to mount/unmount removable devices (necessary for some ZSA features)
+    ];
     packages = with pkgs; [
       firefox # try via flatpak? (would that prevent use of home-manager's ff configs? (for tridactyl))
       kdenlive # try via flatpak? (org.kde.kdenlive)
