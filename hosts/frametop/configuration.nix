@@ -182,6 +182,11 @@
 
   programs.kdeconnect.enable = true;
 
+  # `dconf` is necessary by gtk-based programs to save their settings, otherwise you get the
+  # following warning:
+  # `failed to commit changes to dconf: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name ca.desrt.dconf was not provided by any .service files`
+  programs.dconf.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bew = {
     isNormalUser = true;
