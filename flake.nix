@@ -1,6 +1,6 @@
 {
   inputs = {
-    system-nixpkgs.url = github:nixos/nixpkgs/nixos-23.05;
+    system-nixpkgs.url = github:nixos/nixpkgs/nixos-23.11;
     nixos-hardware.url = github:nixos/nixos-hardware;
   };
 
