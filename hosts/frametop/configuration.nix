@@ -8,13 +8,15 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/for-zsa-keyboards.nix
     ../../modules/better-nix-settings.nix
     # Disable the KDE file indexer `baloo`, when I add/delete/change a lot of small files
     # (e.g: when cloning / compressing / deleting the nixpkgs repo) baloo seems to update
     # its cache like crazy by writing 100M/s on the disk for many minutes (10-15?)...
     # And I actually never use file search that needs pre-indexing, so bye bye o/
     ../../modules/disable-kde-file-indexer.nix
+
+    ../../modules/for-zsa-keyboards.nix
+    ../../modules/input-remaps.nix
   ];
 
   # IDEA: 'options' that act as hardware reference, to be able to access the hardware info in a pure way at eval time,
@@ -71,7 +73,6 @@
 
   console = {
     font = "Lat2-Terminus16";
-    useXkbConfig = true; # use xkbOptions for keymap in tty
   };
 
   # Enable the X11 windowing system.
@@ -83,7 +84,6 @@
 
   # Configure keymap in X11
   services.xserver.layout = "fr";
-  services.xserver.xkbOptions = "caps:escape"; # map caps to escape.
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
@@ -110,37 +110,6 @@
       # Ref: https://wiki.archlinux.org/title/libinput#Tapping_button_re-mapping
       Option "TappingButtonMap" "lmr"
     '';
-  };
-
-  # interception-tools' pipeline can be very flexible
-  # doc: https://gitlab.com/interception/linux/tools
-  services.interception-tools = {
-    enable = true;
-    plugins = [pkgs.interception-tools-plugins.caps2esc];
-    # For some reason PATH isn't passed to job specified in the config
-    # This is tracked in these issues:
-    # - https://github.com/NixOS/nixpkgs/issues/126681
-    # - https://gitlab.com/interception/linux/tools/-/issues/58
-    # So we specify full path to the various tools in config for now.
-    udevmonConfig = let
-      caps2esc = pkgs.interception-tools-plugins.caps2esc;
-      interception-tools = pkgs.interception-tools;
-    in /* yaml */ ''
-      # note on caps2esc usage:
-      # -m 1 : minimal mode: caps as esc/ctrl
-      - JOB: "${interception-tools}/bin/intercept -g $DEVNODE | ${caps2esc}/bin/caps2esc -m 1 | ${interception-tools}/bin/uinput -d $DEVNODE"
-        DEVICE:
-          EVENTS:
-            EV_KEY: [KEY_CAPSLOCK]
-    '';
-    # NOTE: `-t` didn't do what I thought, it's not the held-timeout behavior I want,
-    #   it's just the time generated keys are held (20 micro-seconds by default)
-    #
-    # TODO: port `caps2esc` to Rust, and implement held-timeout behavior!
-    # * (?) Rename to caps2ctrlesc
-    # * Support mouse inputs, as documented at:
-    #   https://gitlab.com/interception/linux/plugins/caps2esc#mousetouchpad-support
-    #   => Allows Ctrl-click to work with held caps key!
   };
 
   # Enable CUPS to print documents.
