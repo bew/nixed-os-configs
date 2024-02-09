@@ -193,6 +193,8 @@
     # to avoid qt stuff loading error on start.
     # See <20230328T1209#incompatible-qt>
     transmission-qt # try via flatpak? (com.transmissionbt.Transmission)
+
+    prusa-slicer
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_6; # Linux 6.6 is LTS
