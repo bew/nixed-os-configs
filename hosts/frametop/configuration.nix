@@ -209,6 +209,16 @@
   # TODO(later): send metrics to some external server? cloud service?
   #   and monitor some things?
   services.netdata.enable = true;
+  # NOTE: easily check current config at <http://localhost:19999/netdata.conf>
+  services.netdata.config = {
+    # Enable more metrics around power supply
+    "plugin:proc:/sys/class/power_supply" = {
+      "battery capacity" = "yes"; # the default
+      "battery charge" = "yes";
+      "battery energy" = "yes";
+      "power supply voltage" = "yes";
+    };
+  };
 
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.intel.updateMicrocode = true;
