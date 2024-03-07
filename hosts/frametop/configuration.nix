@@ -17,6 +17,9 @@
 
     ../../modules/for-zsa-keyboards.nix
     ../../modules/input-remaps.nix
+
+    # Play with kubernetes :)
+    ../../modules/k3s-playground.nix
   ];
 
   # IDEA: 'options' that act as hardware reference, to be able to access the hardware info in a pure way at eval time,
