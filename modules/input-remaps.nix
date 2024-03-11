@@ -72,6 +72,17 @@ in {
             # NOTE: hold key is immediately pressed, important for Shift-MouseEvent to work since
             #   mouse events are NOT routed through this input pipeline.
           }
+          {
+            # KEY_APOSTROPHE is the key just on the right of my right pinky finger
+            # => This replicates on any keyboard the ability I have on my custom split keyboard to
+            #    press shift easily (& do easy Ctrl-Shift!)
+            # RightOfPinky -> Shift/RightOfPinky
+            KEY = "KEY_APOSTROPHE";
+            TAP = "KEY_APOSTROPHE";
+            HOLD = "KEY_RIGHTSHIFT";
+            # NOTE: hold key is immediately pressed, important for Shift-MouseEvent to work since
+            #   mouse events are NOT routed through this input pipeline.
+          }
           # NOTE: I tried to override OS key to force long tap to not trigger KDE's app launcher
           #   But this doesn't work for me because I need OS key to be pressed early to make
           #   OS-MouseEvent work (for move/resize/..), since mouse events are NOT routed through this
