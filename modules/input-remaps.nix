@@ -69,25 +69,13 @@ in {
             KEY = "KEY_ENTER";
             TAP = "KEY_ENTER";
             HOLD = "KEY_RIGHTSHIFT";
-            # NOTE: hold key is immediately pressed, important for Ctrl-MouseEvent to work since
+            # NOTE: hold key is immediately pressed, important for Shift-MouseEvent to work since
             #   mouse events are NOT routed through this input pipeline.
           }
           # NOTE: I tried to override OS key to force long tap to not trigger KDE's app launcher
           #   But this doesn't work for me because I need OS key to be pressed early to make
           #   OS-MouseEvent work (for move/resize/..), since mouse events are NOT routed through this
           #   input pipeline.
-          # {
-          #   # OS -> OS/OS
-          #   # This mapping is used to disables the long-tap OS key action in KDE.
-          #   # (I don't want a long-tap of the OS key to open the KDE app launcher)
-          #   # - key short tap => tap action
-          #   # - key long tap => nothing
-          #   # - key press with other key => start hold with other keys
-          #   KEY = "KEY_LEFTMETA";
-          #   TAP = "KEY_LEFTMETA";
-          #   HOLD = "KEY_LEFTMETA";
-          #   HOLD_START = "BEFORE_CONSUME";
-          # }
 
           # (Block about auto-shifting some keys)
           #
