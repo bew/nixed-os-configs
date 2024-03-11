@@ -69,8 +69,10 @@ in {
             KEY = "KEY_ENTER";
             TAP = "KEY_ENTER";
             HOLD = "KEY_RIGHTSHIFT";
-            # NOTE: hold key is immediately pressed, important for Shift-MouseEvent to work since
-            #   mouse events are NOT routed through this input pipeline.
+            # NOTE: Start pressing Shift just before it is used with another key, this allows me to
+            #   use Left or Right shift to send Shift+[tapped]KEY without conflicting with the
+            #   default hold action being immediate.
+            HOLD_START = "BEFORE_CONSUME";
           }
           {
             # KEY_APOSTROPHE is the key just on the right of my right pinky finger
@@ -80,8 +82,10 @@ in {
             KEY = "KEY_APOSTROPHE";
             TAP = "KEY_APOSTROPHE";
             HOLD = "KEY_RIGHTSHIFT";
-            # NOTE: hold key is immediately pressed, important for Shift-MouseEvent to work since
-            #   mouse events are NOT routed through this input pipeline.
+            # NOTE: Start pressing Shift just before it is used with another key, this allows me to
+            #   use Left or Right shift to send Shift+[tapped]KEY without conflicting with the
+            #   default hold action being immediate.
+            HOLD_START = "BEFORE_CONSUME";
           }
           # NOTE: I tried to override OS key to force long tap to not trigger KDE's app launcher
           #   But this doesn't work for me because I need OS key to be pressed early to make
