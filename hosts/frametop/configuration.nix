@@ -228,6 +228,12 @@
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.intel.updateMicrocode = true;
 
+  # Bluetooth
+  #   In GUI, KDE has nice bluedevil UI in panel widget & settings
+  #   In cli, `bluetoothctl` can inspect & do BT-related actions
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true; # power default controller on boot / resume from suspend
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
