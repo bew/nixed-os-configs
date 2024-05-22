@@ -170,34 +170,37 @@
       "wheel" # Enable *sudo* for the user.
       "plugdev" # Allow to mount/unmount removable devices (necessary for some ZSA features)
     ];
-    packages = with pkgs; [
-      firefox # try via flatpak? (would that prevent use of home-manager's ff configs? (for tridactyl))
-      kdenlive # try via flatpak? (org.kde.kdenlive)
-
-      nomacs # try via flatpak? (org.nomacs.ImageLounge)
-    ];
   };
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
+    # -- CLI
+
     vim # at the very least
     wget
     file
     git
     zip
     unzip
-    ark # a nice archive gui, usually used in KDE
     _7zz # 7z (not sure why the drv is named that way...)
+    appimage-run # to easily run downloaded appimage files
+
+    # -- Desktop
+
+    ark # a nice archive gui, usually used in KDE
+    libreoffice
+    firefox
+    nomacs
 
     gparted
     ntfs3g
 
-    appimage-run # to easily run downloaded appimage files
-
+    # -- Media / Other
+    kdenlive
     # Install with the system to ensure the same qt version is used,
     # to avoid qt stuff loading error on start.
     # See <20230328T1209#incompatible-qt>
-    transmission-qt # try via flatpak? (com.transmissionbt.Transmission)
+    transmission-qt
 
     prusa-slicer
   ];
