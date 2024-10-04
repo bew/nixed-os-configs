@@ -8,8 +8,10 @@
     ../common/optional/workstation
 
     ../common/optional/flatpak.nix
-    ../common/optional/firefox.nix
     ../common/optional/desktop-kde-plasma
+
+    ../common/optional/firefox.nix
+    ../common/optional/firefox-extensions.nix
   ];
 
   # IDEA: 'options' that act as hardware reference, to be able to access the hardware info in a pure way at eval time,
