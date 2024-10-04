@@ -1,5 +1,9 @@
 # NixOS configs
 
+The module organization structure is inspired by this excellent blog post
+[Anatomy of a NixOS config](https://unmovedcentre.com/posts/anatomy-of-a-nixos-config/) ✨.
+
+
 ## Build and switch OS config
 
 (Assuming [just](https://github.com/casey/just) is installed/available)

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, myPkgs, ... }:
 
 # Enable udev rules for keyboards from ZSA (like the Moonlander <3)
 # They are needed to flash a new config, or use live training.
@@ -7,8 +7,8 @@
 
   environment.systemPackages = [
     # The Keymapp' flashing & visualization program from ZSA
-    # (not packaged yet in nixpkgs)
-    (pkgs.callPackage ../pkgs/zsa-keymapp {})
+    # (not in nixpkgs as it's proprietary..)
+    myPkgs.zsa-keymapp
   ];
 
   # Copied from: https://github.com/zsa/wally/wiki/Linux-install
