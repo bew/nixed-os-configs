@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, myPkgs, ... }:
 
 {
   imports = [
@@ -34,6 +34,7 @@
     # wezterm # (❤ )
 
     # -- Media / Other
+    myPkgs.mpv-channel-helpers # @mpv daemon-start <channel> / add <channel> / …
     kdenlive
 
     prusa-slicer
