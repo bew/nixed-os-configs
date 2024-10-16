@@ -9,6 +9,7 @@
 
     ../common/optional/flatpak.nix
     ../common/optional/desktop-kde-plasma
+    ../common/optional/x11-session.nix
 
     ../common/optional/firefox.nix
     ../common/optional/firefox-extensions.nix

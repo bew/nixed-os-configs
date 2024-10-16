@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     # Disable the KDE file indexer `baloo`, when I add/delete/change a lot of small files
@@ -13,4 +15,8 @@
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    dunst # notification handler (I prefer those to KDE native ones 👀 (@2023~))
+  ];
 }

@@ -5,7 +5,6 @@
     ./localization.nix
 
     ./base-tools.nix
-    ./system-tools.nix
   ];
 
   _module.args.myPkgs = import ../../../mypkgs/default.nix { inherit pkgs; };

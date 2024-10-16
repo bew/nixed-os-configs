@@ -5,13 +5,14 @@
     ./input-remaps.nix
     ./zsa-keyboards-edit-support.nix
     ./monitoring.nix
+    ./system-tools.nix
 
     ./../audio.nix
     ./../media-view.nix
   ];
 
-  # NOTE: This is NOT specific to KDE Plasma desktop ;)
-  #   <https://kdeconnect.kde.org/>
+  # Not specific to KDE Plasma desktop ;)
+  # ref: <https://kdeconnect.kde.org/>
   programs.kdeconnect.enable = true;
 
   # `dconf` is necessary by gtk-based programs to save their settings, otherwise you get the
