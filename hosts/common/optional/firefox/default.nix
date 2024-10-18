@@ -1,4 +1,9 @@
 {
+  imports = [
+    ./bookmarks.nix
+    ./extensions.nix
+  ];
+
   programs.firefox.enable = true;
 
   programs.firefox.languagePacks = [ "en-US" "fr" ];

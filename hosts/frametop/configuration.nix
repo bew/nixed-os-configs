@@ -11,8 +11,7 @@
     ../common/optional/desktop-kde-plasma
     ../common/optional/x11-session.nix
 
-    ../common/optional/firefox.nix
-    ../common/optional/firefox-extensions.nix
+    ../common/optional/firefox # ✨
   ];
 
   # IDEA: 'options' that act as hardware reference, to be able to access the hardware info in a pure way at eval time,
