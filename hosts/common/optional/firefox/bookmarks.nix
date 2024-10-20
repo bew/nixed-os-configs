@@ -41,5 +41,10 @@
       url = "https://discord.com/app";
       # MANUAL-CONFIG: Set `keyword` to `disc`
     }
+    {
+      name = "GKeep"; # my current note-taking app
+      url = "https://keep.google.com";
+      # MANUAL-CONFIG: Set `keyword` to `kp`
+    }
   ];
 }
