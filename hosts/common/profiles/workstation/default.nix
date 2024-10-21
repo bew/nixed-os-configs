@@ -7,8 +7,8 @@
     ./monitoring.nix
     ./system-tools.nix
 
-    ./../audio.nix
-    ./../media-view.nix
+    ./../../optional/audio.nix
+    ./../../optional/media-view.nix
   ];
 
   # Not specific to KDE Plasma desktop ;)

@@ -1,4 +1,22 @@
+{ pkgs, myPkgs, ... }:
+
 {
+  imports = [
+    ../common/optional/firefox
+  ];
+
+  environment.systemPackages = with pkgs; [
+    # TODO: add when it's recent enough!
+    #   (I don't have bleedingedge repo available here atm)
+    # wezterm # (❤ )
+
+    # -- Media / Other
+    myPkgs.mpv-channel-helpers # @mpv daemon-start <channel> / add <channel> / …
+    kdenlive
+
+    prusa-slicer
+  ];
+
   services.flatpak.enable = true;
   # FIXME: Add a way to declaratively track & configure flatpak apps?
   # Way to declare which remote repo of flatpaks to track (flathub / ..)

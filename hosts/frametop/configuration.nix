@@ -1,17 +1,16 @@
-{ pkgs, myPkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ../common/core # Common to ALL hosts
 
-    ../common/optional/laptop
-    ../common/optional/workstation
+    ../common/profiles/laptop
+    ../common/profiles/workstation
 
-    ../common/optional/flatpak.nix
     ../common/optional/desktop-kde-plasma
     ../common/optional/x11-session.nix
 
-    ../common/optional/firefox # ✨
+    ./programs.nix
   ];
 
   # IDEA: 'options' that act as hardware reference, to be able to access the hardware info in a pure way at eval time,
@@ -28,19 +27,6 @@
       "plugdev" # Allow to mount/unmount removable devices (necessary for some ZSA features)
     ];
   };
-
-  # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
-    # TODO: add when it's recent enough!
-    #   (I don't have bleedingedge repo available here atm)
-    # wezterm # (❤ )
-
-    # -- Media / Other
-    myPkgs.mpv-channel-helpers # @mpv daemon-start <channel> / add <channel> / …
-    kdenlive
-
-    prusa-slicer
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
