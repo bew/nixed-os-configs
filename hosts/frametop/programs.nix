@@ -5,6 +5,11 @@
     ../common/optional/firefox
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
+  # ⚠ non-free!
+  services.teamviewer.enable = true;
+
   environment.systemPackages = with pkgs; [
     # TODO: add when it's recent enough!
     #   (I don't have bleedingedge repo available here atm)
@@ -15,6 +20,8 @@
     kdenlive
 
     prusa-slicer
+
+    beeper # ⚠ non-free!
   ];
 
   services.flatpak.enable = true;

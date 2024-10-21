@@ -34,4 +34,12 @@
     # See <20230328T1209#incompatible-qt>
     transmission-qt
   ];
+
+  fonts.packages = [
+    pkgs.jetbrains-mono
+    pkgs.fira-code
+    pkgs.noto-fonts
+    pkgs.google-fonts
+    pkgs.twitter-color-emoji
+  ];
 }
