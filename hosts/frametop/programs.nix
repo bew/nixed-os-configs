@@ -3,6 +3,8 @@
 {
   imports = [
     ../common/optional/firefox
+
+    ../common/optional/gaming.nix # 󰊴 !
   ];
 
   nixpkgs.config.allowUnfree = true;
