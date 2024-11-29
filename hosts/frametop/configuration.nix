@@ -2,13 +2,13 @@
 
 {
   imports = [
-    ../common/core # Common to ALL hosts
+    ../nixos-profiles/core # Common to ALL hosts
 
-    ../common/profiles/laptop
-    ../common/profiles/workstation
+    ../nixos-profiles/laptop
+    ../nixos-profiles/workstation
 
-    ../common/optional/desktop-kde-plasma
-    ../common/optional/x11-session.nix
+    ../../modules/os-nixos/desktop-kde-plasma
+    ../../modules/os-nixos/x11-session.nix
 
     ./programs.nix
   ];

@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ../common/optional/firefox
+    ../../modules/os-nixos/firefox
 
-    ../common/optional/gaming.nix # 󰊴 !
+    ../../modules/os-nixos/gaming.nix # 󰊴 !
   ];
 
   nixpkgs.config.allowUnfree = true;
