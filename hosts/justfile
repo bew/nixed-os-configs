@@ -1,0 +1,38 @@
+_default:
+  @{{just_executable()}} --list
+
+# --- Actions for managing inputs in a host directory
+
+[no-cd]
+_check-in-host-dir:
+  #!/usr/bin/env bash
+  parent_dir=$(dirname {{invocation_directory()}})
+  if [[ "$parent_dir" != {{justfile_directory()}} ]]; then
+    >&2 echo "!! Not in a host directory !!"
+    exit 1
+  fi
+
+# Show all inputs
+[no-cd]
+inputs: _check-in-host-dir
+  npins show
+
+# Add a new input
+[no-cd]
+add-input *ARGS: _check-in-host-dir
+  npins add {{ ARGS }}
+
+# Update 1+ inputs
+[no-cd]
+update-input +INPUTS: _check-in-host-dir
+  npins update {{ INPUTS }}
+
+# Update all inputs
+[no-cd]
+update-all-inputs: _check-in-host-dir
+  npins update
+
+# DRY RUN: Update all inputs
+[no-cd]
+diff-update-all-inputs: _check-in-host-dir
+  npins update --dry-run
