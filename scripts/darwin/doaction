@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+host_name=$1; shift
+darwin-rebuild --flake .#${host_name} "$@"

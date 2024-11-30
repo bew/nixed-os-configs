@@ -1,0 +1,5 @@
+frametop
+# (anything after the first line is ignored)
+# --
+# This file holds the name of the current host,
+# it is used for `just re*` actions that don't mention a host name

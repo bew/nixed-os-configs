@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+host_name=$1; shift
+nixos-rebuild --flake .#${host_name} "$@"
