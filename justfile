@@ -1,5 +1,13 @@
+# Use full path to exe if just isn't in $PATH, or 'just' otherwise
+# NOTE: Better condition needs https://github.com/casey/just/issues/2109
+just_exe := if `which just 2>/dev/null || echo ""` == "" {
+  just_executable()
+} else {
+  "just"
+}
+
 _default:
-  @{{just_executable()}} --list
+  @{{just_exe}} --list
 
 
 # --- Generic actions
@@ -28,28 +36,29 @@ re *ARGS:
   echo ":: Current host name: $host_name (found in '$CURRENT_HOST_NAME_PATH')"
   echo # blank line
 
-  {{just_executable()}} do "$host_name" {{ ARGS }}
+  {{just_exe}} do "$host_name" {{ ARGS }}
+  # TODO: make it work when started from host dir 🤔
 
 
 # --- Actions for config of given host name
 
 # Build the given NixOS config NAME
 dobuild NAME *ARGS:
-  {{just_executable()}} do {{ NAME }} build {{ ARGS }}
+  {{just_exe}} do {{ NAME }} build {{ ARGS }}
 
 # Switch system to the given NixOS config NAME
 doswitch NAME *ARGS:
   @>&2 echo "/!\\ WARN: will need sudo to activate"
-  sudo {{just_executable()}} do {{ NAME }} switch {{ ARGS }}
+  sudo {{just_exe}} do {{ NAME }} switch {{ ARGS }}
 
 
 # --- Actions for config of current host
 
 # Build OS config of current host (host name from ./current-host-name)
 rebuild *ARGS:
-  {{just_executable()}} re build {{ ARGS }}
+  {{just_exe}} re build {{ ARGS }}
 
 # Switch to OS config of current host (host name from ./current-host-name)
 reswitch *ARGS:
   @>&2 echo "/!\\ WARN: will need sudo to activate"
-  sudo {{just_executable()}} re switch {{ ARGS }}
+  sudo {{just_exe}} re switch {{ ARGS }}
