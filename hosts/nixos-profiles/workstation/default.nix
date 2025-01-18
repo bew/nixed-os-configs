@@ -11,6 +11,8 @@
     ../../../modules/os-nixos/media-view.nix
   ];
 
+  services.espanso.enable = true;
+
   # Not specific to KDE Plasma desktop ;)
   # ref: <https://kdeconnect.kde.org/>
   programs.kdeconnect.enable = true;
