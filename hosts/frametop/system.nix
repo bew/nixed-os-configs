@@ -2,11 +2,9 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./networking.nix
   ];
-
-  networking.hostName = "frametop";
 
   boot.kernelPackages = pkgs.linuxPackages_6_6; # Linux 6.6 is LTS (@2023-12)
 
@@ -16,8 +14,6 @@
 
   boot.tmp.useTmpfs = true;
   boot.tmp.tmpfsSize = "10G";
-
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Bluetooth
   #   In GUI, KDE has nice bluedevil UI in panel widget & settings
