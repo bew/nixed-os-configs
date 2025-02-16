@@ -24,6 +24,7 @@
     # https://wiki.debian.org/SystemGroups#Groups_without_an_associated_user
     extraGroups = [
       "wheel" # Enable *sudo* for the user.
+      "nix-trusted" # Allow control of the Nix daemon (this is a custom group).
       "plugdev" # Allow to mount/unmount removable devices (necessary for some ZSA features)
     ];
   };

@@ -22,7 +22,11 @@ let
 in {
   nix.settings = better-nix-defaults // {
     experimental-features = "nix-command flakes";
+
+    # Allow all users in the `nix-trusted` group to control the Nix daemon.
+    trusted-users = [ "@nix-trusted" ];
   };
+  users.groups.nix-trusted = {};
 
   nix.gc = {
     automatic = true;
