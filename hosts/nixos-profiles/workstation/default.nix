@@ -34,7 +34,7 @@
 
     # Install with the system to ensure the same qt version is used.
     # See <20230328T1209#incompatible-qt>
-    transmission-qt
+    transmission_4-qt
   ];
 
   fonts.packages = [

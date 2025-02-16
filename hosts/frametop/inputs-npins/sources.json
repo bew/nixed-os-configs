@@ -20,9 +20,9 @@
         "repo": "nixos-hardware"
       },
       "branch": "master",
-      "revision": "87f8403371fa74d9ad21ed677403cc235f37b96c",
-      "url": "https://github.com/nixos/nixos-hardware/archive/87f8403371fa74d9ad21ed677403cc235f37b96c.tar.gz",
-      "hash": "sha256:0z7fps0207sqp3vivgni5v8kg7qyinpd3y7k0hljf2pqmrpfdqfy"
+      "revision": "2eccff41bab80839b1d25b303b53d339fbb07087",
+      "url": "https://github.com/nixos/nixos-hardware/archive/2eccff41bab80839b1d25b303b53d339fbb07087.tar.gz",
+      "hash": "18mvkhlzlws28brxmjw2igwmxsrh8v3plixywlbrg6hpiy1na977"
     },
     "system-nixpkgs": {
       "type": "Git",
@@ -31,10 +31,10 @@
         "owner": "nixos",
         "repo": "nixpkgs"
       },
-      "branch": "nixos-23.11",
-      "revision": "c5101e457206dd437330d283d6626944e28794b3",
-      "url": "https://github.com/nixos/nixpkgs/archive/c5101e457206dd437330d283d6626944e28794b3.tar.gz",
-      "hash": "sha256:0sjapzwnf4j41qqi9yj7fmbbafa9642zhfqdhp5mfyp14a6zj55b"
+      "branch": "nixos-24.11",
+      "revision": "0b73e36b1962620a8ac551a37229dd8662dac5c8",
+      "url": "https://github.com/nixos/nixpkgs/archive/0b73e36b1962620a8ac551a37229dd8662dac5c8.tar.gz",
+      "hash": "15avzb7r8iflfsl4glcvgqk1bn4fy9xr7fq7cjw8lg1vsg6qndf2"
     }
   },
   "version": 3

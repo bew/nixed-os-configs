@@ -19,5 +19,5 @@
   };
 
   # Safe to set all-the-time even if xserver not actually used.
-  services.xserver.layout = "fr";
+  services.xserver.xkb.layout = "fr";
 }
