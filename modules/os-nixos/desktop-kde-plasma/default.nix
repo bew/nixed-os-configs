@@ -12,9 +12,13 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the Plasma 5 Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+
+  # Enable the Plasma 6 Desktop Environment.
+  services.desktopManager.plasma6.enable = true;
+  # Plasma 6 runs on Wayland by default. But I want X11.
+  # REF: https://wiki.nixos.org/wiki/KDE#Default_Wayland/X11_session
+  services.displayManager.defaultSession = "plasmax11";
 
   environment.systemPackages = with pkgs; [
     dunst # notification handler (I prefer those to KDE native ones 👀 (@2023~))
