@@ -1,4 +1,4 @@
-{ pkgs, myPkgs, ... }:
+{ pkgs, myPkgs, lib, ... }:
 
 {
   imports = [
@@ -24,6 +24,47 @@
     prusa-slicer
 
     beeper # ⚠ non-free!
+
+    # Add a minimal Sway config, to easily test Wayland stuff from X
+    (
+      let
+        config = pkgs.writeText "sway-mini-config" /* swaycfg */ ''
+          input * xkb_layout fr
+
+          # Mod1 <=> Alt key
+          set $alt Mod1
+
+          # Set modifier used to move/resize a window
+          floating_modifier $alt normal
+
+          # Quit Sway
+          bindsym Ctrl+Shift+q \
+            exit
+          bindsym Ctrl+$alt+q \
+            exit
+
+          # Open a program
+          bindsym $alt+x \
+            exec ${lib.getExe pkgs.rofi-wayland} -show drun
+
+          # Open terminal
+          bindsym $alt+Space \
+            exec ${lib.getExe pkgs.wezterm}
+
+          bindsym Ctrl+$alt+f \
+            floating toggle
+        '';
+      in pkgs.buildEnv {
+        name = "sway-mini-preconfig";
+        meta.mainProgram = "";
+        paths = [ pkgs.sway ];
+        nativeBuildInputs = [ makeWrapper ];
+        postBuild = /* sh */ ''
+          makeWrapper ${lib.getExe pkgs.sway} $out/bin/sway-mini-preconfig \
+            --add-flags "--config ${config}"
+        '';
+      }
+    )
   ];
 
   services.flatpak.enable = true;
