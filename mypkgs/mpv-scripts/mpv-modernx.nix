@@ -6,13 +6,13 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "mpv-modernx";
-  version = "0.6.0";
+  version = "0.6.1";
 
   src = fetchFromGitHub {
     owner = "cyl0";
     repo = "ModernX";
     rev = version;
-    hash = "sha256-Gpofl529VbmdN7eOThDAsNfNXNkUDDF82Rd+csXGOQg=";
+    hash = "sha256-q7DwyfmOIM7K1L7vvCpq1EM0RVpt9E/drhAa9rLYb1k=";
   };
 
   dontBuild = true;
