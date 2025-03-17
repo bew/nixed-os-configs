@@ -1,5 +1,6 @@
 {
-  time.timeZone = "Europe/Paris";
+  # time.timeZone = "Europe/Paris";
+  time.timeZone = "Europe/Lisbon"; # For when i'm in Lanzarote (Nix OceanSprint FTW ✨)
 
   # Text messages and default language should be English,
   # but all other region-specific formatting should be for my native language.
