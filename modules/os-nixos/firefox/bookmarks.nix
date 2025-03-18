@@ -32,6 +32,11 @@
       # MANUAL-CONFIG: Set `keyword` to `rsl`
     }
     {
+      name = "Python3 std";
+      url = "https://docs.python.org/3/library/index.html";
+      # MANUAL-CONFIG: Set `keyword` to `pyd`
+    }
+    {
       name = "MonkeyType";
       url = "https://monkeytype.com";
       # MANUAL-CONFIG: Set `keyword` to `mtype`
