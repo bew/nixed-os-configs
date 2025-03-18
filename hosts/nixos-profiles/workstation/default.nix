@@ -28,7 +28,6 @@
 
   environment.systemPackages = with pkgs; [
     appimage-run # to easily run downloaded appimage files
-    ark # a nice archive gui (has integration with KDE desktop)
 
     libreoffice
 

@@ -21,6 +21,6 @@
   services.displayManager.defaultSession = "plasmax11";
 
   environment.systemPackages = with pkgs; [
-    dunst # notification handler (I prefer those to KDE native ones 👀 (@2023~))
+    kdePackages.ark # a nice archive gui integrated into Dolphin
   ];
 }
