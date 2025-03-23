@@ -5,6 +5,7 @@
     ../../modules/os-nixos/firefox
 
     ../../modules/os-nixos/gaming.nix # 󰊴 !
+    ../../modules/os-nixos/warez.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

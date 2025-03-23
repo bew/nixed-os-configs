@@ -30,17 +30,5 @@
     appimage-run # to easily run downloaded appimage files
 
     libreoffice
-
-    # Install with the system to ensure the same qt version is used.
-    # See <20230328T1209#incompatible-qt>
-    transmission_4-qt
-  ];
-
-  fonts.packages = [
-    pkgs.jetbrains-mono
-    pkgs.fira-code
-    pkgs.noto-fonts
-    pkgs.google-fonts
-    pkgs.twitter-color-emoji
   ];
 }

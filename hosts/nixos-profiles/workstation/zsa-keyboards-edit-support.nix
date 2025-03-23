@@ -1,6 +1,6 @@
 { pkgs, myPkgs, ... }:
 
-# Enable udev rules for keyboards from ZSA (like the Moonlander <3)
+# Enable udev rules for keyboards from ZSA (like the Voyager <3)
 # They are needed to flash a new config, or use live training.
 {
   hardware.keyboard.zsa.enable = true;
