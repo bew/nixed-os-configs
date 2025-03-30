@@ -20,7 +20,7 @@ in {
 
     # --- General extensions
 
-    # uBlock
+    # uBlock - https://ublockorigin.com/
     "uBlock0@raymondhill.net" = {
       install_url = latestUrl "ublock-origin";
     };
@@ -59,11 +59,25 @@ in {
       latestUrl = latestUrl "notifications-preview-github";
     };
 
-    # DeArrow
+    # Unhook - https://unhook.app/ ((!!) not opensource :/)
+    # NOTE: must be manually configured to hide different parts of the YouTube UI.
+    #   -> Disable:
+    #    - Hide Home Feed
+    #    - Hide Recommended (video recommendations)
+    #    - Hide Playlist
+    #    - Hide Top Header (want my few notifications!)
+    #   -> Enable:
+    #    + Hide Shorts
+    #    + Hide Mixes
+    #    + Hide Explore, Trending
+    "myallychou@gmail.com" = {
+      install_url = latestUrl "youtube-recommended-videos";
+    };
+    # DeArrow - https://dearrow.ajay.app/
     "deArrow@ajay.app" = {
       install_url = latestUrl "dearrow";
     };
-    # SponsorBlock
+    # SponsorBlock - https://sponsor.ajay.app/
     "sponsorBlocker@ajay.app" = {
       install_url = latestUrl "sponsorblock";
     };
