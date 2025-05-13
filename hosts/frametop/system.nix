@@ -6,7 +6,7 @@
     ./networking.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_6_6; # Linux 6.6 is LTS (@2023-12)
+  boot.kernelPackages = pkgs.linuxPackages_6_12; # Linux 6.12 is LTS @2024-11
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;

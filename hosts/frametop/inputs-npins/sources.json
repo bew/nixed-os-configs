@@ -8,9 +8,9 @@
         "repo": "flake-compat"
       },
       "branch": "master",
-      "revision": "9ed2ac151eada2306ca8c418ebd97807bb08f6ac",
-      "url": "https://github.com/edolstra/flake-compat/archive/9ed2ac151eada2306ca8c418ebd97807bb08f6ac.tar.gz",
-      "hash": "063slk1np1g1dkh21a82x655kpja7p4pc74rb3lqankyrbbpy4hx"
+      "revision": "9100a0f413b0c601e0533d1d94ffd501ce2e7885",
+      "url": "https://github.com/edolstra/flake-compat/archive/9100a0f413b0c601e0533d1d94ffd501ce2e7885.tar.gz",
+      "hash": "09m84vsz1py50giyfpx0fpc7a4i0r1xsb54dh0dpdg308lp4p188"
     },
     "nixos-hardware": {
       "type": "Git",
@@ -20,9 +20,9 @@
         "repo": "nixos-hardware"
       },
       "branch": "master",
-      "revision": "2eccff41bab80839b1d25b303b53d339fbb07087",
-      "url": "https://github.com/nixos/nixos-hardware/archive/2eccff41bab80839b1d25b303b53d339fbb07087.tar.gz",
-      "hash": "18mvkhlzlws28brxmjw2igwmxsrh8v3plixywlbrg6hpiy1na977"
+      "revision": "e81fd167b33121269149c57806599045fd33eeed",
+      "url": "https://github.com/nixos/nixos-hardware/archive/e81fd167b33121269149c57806599045fd33eeed.tar.gz",
+      "hash": "1a48x06dnlc78ddz0dwsfq77xv3isf7b08dqwf2q0y86jq1jaxrg"
     },
     "system-nixpkgs": {
       "type": "Git",
@@ -32,9 +32,9 @@
         "repo": "nixpkgs"
       },
       "branch": "nixos-24.11",
-      "revision": "0b73e36b1962620a8ac551a37229dd8662dac5c8",
-      "url": "https://github.com/nixos/nixpkgs/archive/0b73e36b1962620a8ac551a37229dd8662dac5c8.tar.gz",
-      "hash": "15avzb7r8iflfsl4glcvgqk1bn4fy9xr7fq7cjw8lg1vsg6qndf2"
+      "revision": "a39ed32a651fdee6842ec930761e31d1f242cb94",
+      "url": "https://github.com/nixos/nixpkgs/archive/a39ed32a651fdee6842ec930761e31d1f242cb94.tar.gz",
+      "hash": "16pw0f94nr3j91z0wm4ndjm44xfd238vcdkg07s2l74znkaavnwk"
     }
   },
   "version": 3
