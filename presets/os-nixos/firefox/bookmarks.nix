@@ -12,6 +12,11 @@
       # MANUAL-CONFIG: Set `keyword` to `gn`
     }
     {
+      name = "My dotfiles!";
+      url = "https://github.com/bew/dotfiles";
+      # MANUAL-CONFIG: Set `keyword` to `gd`
+    }
+    {
       name = "LibreTranslate";
       url = "https://libretranslate.com";
       # MANUAL-CONFIG: Set `keyword` to `tr`
