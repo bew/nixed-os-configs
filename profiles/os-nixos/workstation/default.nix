@@ -7,8 +7,8 @@
     ./monitoring.nix
     ./system-tools.nix
 
-    ../../../modules/os-nixos/audio.nix
-    ../../../modules/os-nixos/media-view.nix
+    ../../../presets/os-nixos/audio.nix
+    ../../../presets/os-nixos/media-view.nix
   ];
 
   services.espanso.enable = true;

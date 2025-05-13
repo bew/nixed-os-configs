@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ../../modules/os-nixos/firefox
+    ../../presets/os-nixos/firefox
 
-    ../../modules/os-nixos/gaming.nix # 󰊴 !
-    ../../modules/os-nixos/warez.nix
+    ../../presets/os-nixos/gaming.nix # 󰊴 !
+    ../../presets/os-nixos/warez.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
