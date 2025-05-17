@@ -1,6 +1,14 @@
 {
   # doc: https://mozilla.github.io/policy-templates/#bookmarks
   programs.firefox.policies.ManagedBookmarks = [
+    # Firefox UI
+    {
+      name = "FF Library";
+      url = "chrome://browser/content/places/places.xhtml";
+      # MANUAL-CONFIG: Set `keyword` to `bmarks` or `fflib` 🤔
+    }
+
+    # Websites
     {
       name = "Github";
       url = "https://github.com";
@@ -15,6 +23,21 @@
       name = "My dotfiles!";
       url = "https://github.com/bew/dotfiles";
       # MANUAL-CONFIG: Set `keyword` to `gd`
+    }
+    {
+      name = "Nixpkgs repo";
+      url = "https://github.com/NixOS/nixpkgs";
+      # MANUAL-CONFIG: Set `keyword` to `nxp`
+    }
+    {
+      name = "Nix search NixOS options";
+      url = "https://search.nixos.org/options";
+      # MANUAL-CONFIG: Set `keyword` to `nso`
+    }
+    {
+      name = "Nix search packages";
+      url = "https://search.nixos.org/packages";
+      # MANUAL-CONFIG: Set `keyword` to `nsp`
     }
     {
       name = "LibreTranslate";
