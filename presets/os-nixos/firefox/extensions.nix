@@ -11,7 +11,7 @@ in {
   #   https://github.com/woodruffw/ff2mpv
   # programs.firefox.nativeMessagingHosts.ff2mpv = true;
 
-  # Find Extension ID in <about:support>.
+  # Find Extension ID in <about:debugging#/runtime/this-firefox> or <about:support>.
   # Doc: https://mozilla.github.io/policy-templates/#extensionsettings
   programs.firefox.policies.ExtensionSettings = {
     "*" = {
