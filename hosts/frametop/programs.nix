@@ -19,7 +19,8 @@
     # wezterm # (❤ )
 
     # -- Media / Other
-    myPkgs.mpv-channel-helpers # @mpv daemon-start <channel> / add <channel> / …
+    # @mpv daemon-start <channel> / add <channel> / …
+    (myPkgs.mpv-channel-helpers.override { mpv = "from-PATH"; })
     kdenlive
 
     prusa-slicer
