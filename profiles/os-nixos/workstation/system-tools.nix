@@ -7,6 +7,7 @@
     kdePackages.filelight
 
     lshw # Show hardware info
-    pciutils # Show pci hardware info
+    pciutils # Show pci hardware info (e.g. lspci)
+    usbutils # Tools for working with USB devices (e.g. lsusb)
   ];
 }

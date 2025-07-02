@@ -26,8 +26,13 @@
       "wheel" # Enable *sudo* for the user.
       "nix-trusted" # Allow control of the Nix daemon (this is a custom group).
       "plugdev" # Allow to mount/unmount removable devices (necessary for some ZSA features)
+      "adbusers" # Allow access to the Android Debug Bridge (adb)
     ];
   };
+
+  # ref: https://wiki.nixos.org/wiki/Android
+  programs.adb.enable = true;
+  # note: Users wanting access to the Android Debug Bridge must be in `adbusers` group
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
