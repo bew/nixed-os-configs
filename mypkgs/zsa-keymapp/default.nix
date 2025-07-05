@@ -1,5 +1,5 @@
 {
-  buildFHSUserEnv,
+  buildFHSEnv,
   writeShellScript,
   fetchzip,
 }:
@@ -19,7 +19,7 @@ let
     stripRoot = false;
   };
 
-in buildFHSUserEnv {
+in buildFHSEnv {
   name = "keymapp";
   runScript = "${keymapp-binary}/keymapp";
   targetPkgs = pkgs: [
@@ -29,6 +29,6 @@ in buildFHSUserEnv {
     pkgs.libgudev
     pkgs.libusb1
     pkgs.systemd
-    pkgs.webkitgtk
+    pkgs.webkitgtk_6_0
   ];
 }

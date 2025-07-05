@@ -21,7 +21,7 @@
     # -- Media / Other
     # @mpv daemon-start <channel> / add <channel> / …
     (myPkgs.mpv-channel-helpers.override { mpv = "from-PATH"; })
-    kdenlive
+    kdePackages.kdenlive
 
     prusa-slicer
 
