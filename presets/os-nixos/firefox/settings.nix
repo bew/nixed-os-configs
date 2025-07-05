@@ -21,7 +21,7 @@
     "browser.tabs.inTitlebar" = 1; # looks nice! ✨
     "browser.tabs.closeWindowWithLastTab" = false; # Don't close window with last closed tab
     "browser.tabs.tabClipWidth" = 999; # only the active tab has a close button
-    "browser.tabs.tabMinWidth" = 100; # Larger min tab size, helps with tab selection when the 'mute-sound' button is visible
+    "browser.tabs.tabMinWidth" = 130; # Larger min tab size, helps with tab selection when the 'mute-sound' button is visible
     "browser.tabs.groups.enabled" = true; # Tab groups!
     "browser.tabs.fadeOutExplicitlyUnloadedTabs" = true;
 
