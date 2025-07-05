@@ -16,7 +16,7 @@ system-nixpkgs.lib.nixosSystem {
   inherit system;
   modules = [
     {
-      imports = [ nixos-hardware.nixosModules.framework-12th-gen-intel ];
+      imports = [ nixos-hardware.nixosModules.framework-13-7040-amd ];
       # Disable fingerprint support (no need)
       services.fprintd.enable = false;
     }

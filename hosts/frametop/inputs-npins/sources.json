@@ -32,9 +32,9 @@
         "repo": "nixos-hardware"
       },
       "branch": "master",
-      "revision": "4602f7e1d3f197b3cb540d5accf5669121629628",
-      "url": "https://github.com/nixos/nixos-hardware/archive/4602f7e1d3f197b3cb540d5accf5669121629628.tar.gz",
-      "hash": "1qq9gb0rxw43l2hhdnbf6c24r6051nhnqv7z72zxd79fg108m4av"
+      "revision": "497ae1357f1ac97f1aea31a4cb74ad0d534ef41f",
+      "url": "https://github.com/nixos/nixos-hardware/archive/497ae1357f1ac97f1aea31a4cb74ad0d534ef41f.tar.gz",
+      "hash": "1p177s0hapjcy75ivjzgzm22i7vma49mjxnn6z9j34awddwqqznp"
     },
     "system-nixpkgs": {
       "type": "Git",
