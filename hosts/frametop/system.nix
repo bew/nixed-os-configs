@@ -24,4 +24,8 @@
   # FIXME: where to move this info? REMOVE?
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.intel.updateMicrocode = true;
+
+  # Enable LVFS for firmware updates
+  # ( LVFS: Linux Vendor Firmware Service, see: https://fwupd.org/ )
+  services.fwupd.enable = true;
 }
