@@ -8,10 +8,14 @@
     ../../profiles/os-nixos/workstation
 
     ../../presets/os-nixos/desktop-kde-plasma
-    ../../presets/os-nixos/x11-session.nix
+    ../../presets/os-nixos/desktop-x11-session.nix # note: disabled when trying-out-wayland is true
+    ../../presets/os-nixos/desktop-wayland-session.nix
 
     ./programs.nix
   ];
+
+  # @2025-07-06: Enabled because of KDE's Lockscreen issue doing max CPU on Framework 13 AMD mainboard 😬..
+  me.trying-out-wayland = true;
 
   # IDEA: 'options' that act as hardware reference, to be able to access the hardware info in a pure way at eval time,
   # to allow writing this option relative to hardware info:

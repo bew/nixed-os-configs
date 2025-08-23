@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -9,9 +9,19 @@
 
     ../../../presets/os-nixos/audio.nix
     ../../../presets/os-nixos/media-view.nix
+
+    # Vendored fix for Espanso on wayland
+    # Source: https://github.com/NixOS/nixpkgs/pull/328890
+    ./espanso-cap-override-fix-for-wayland
   ];
 
   services.espanso.enable = true;
+  services.espanso.package = lib.mkIf config.me.trying-out-wayland pkgs.espanso-wayland;
+  # On wayland it doesn't work well as the package is missing a capability:
+  # https://github.com/NixOS/nixpkgs/issues/249364
+  # Hacky PR to fix: https://github.com/NixOS/nixpkgs/pull/328890
+  # Vendored in my repo in the meantime.
+  programs.espanso.capdacoverride.enable = lib.mkIf config.me.trying-out-wayland true;
 
   # Not specific to KDE Plasma desktop ;)
   # ref: <https://kdeconnect.kde.org/>

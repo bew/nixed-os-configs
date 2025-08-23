@@ -21,7 +21,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true; # power default controller on boot / resume from suspend
 
-  # Enable LVFS for firmware updates
+  # Enable LVFS for firmware updates (when needed)
   # ( LVFS: Linux Vendor Firmware Service, see: https://fwupd.org/ )
-  services.fwupd.enable = true;
+  # services.fwupd.enable = true;
 }

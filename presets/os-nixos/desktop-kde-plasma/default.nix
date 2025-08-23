@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -10,7 +10,7 @@
   ];
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver.enable = !config.me.trying-out-wayland;
 
   services.displayManager.sddm.enable = true;
 
@@ -18,7 +18,11 @@
   services.desktopManager.plasma6.enable = true;
   # Plasma 6 runs on Wayland by default. But I want X11.
   # REF: https://wiki.nixos.org/wiki/KDE#Default_Wayland/X11_session
-  services.displayManager.defaultSession = "plasmax11";
+  services.displayManager.defaultSession = (
+    if config.me.trying-out-wayland
+    then "plasma" # Wayland
+    else "plasmax11" # X11
+  );
 
   environment.systemPackages = with pkgs; [
     kdePackages.ark # a nice archive gui integrated into Dolphin

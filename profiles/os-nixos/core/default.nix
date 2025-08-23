@@ -5,6 +5,7 @@
     ./localization.nix
 
     ./base-tools.nix
+    ../../../modules/os-nixos/maybe-trying-out-wayland.nix
   ];
 
   _module.args.myPkgs = import ../../../mypkgs/default.nix { inherit pkgs; };

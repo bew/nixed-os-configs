@@ -17,6 +17,7 @@
     # TODO: add when it's recent enough!
     #   (I don't have bleedingedge repo available here atm)
     # wezterm # (❤ )
+    alacritty # (in case wezterm broken)
 
     # -- Media / Other
     # @mpv daemon-start <channel> / add <channel> / …

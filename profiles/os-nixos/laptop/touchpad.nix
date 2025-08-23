@@ -1,3 +1,5 @@
+{ lib, config, ... }:
+
 {
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -19,10 +21,10 @@
     disableWhileTyping = true;
 
     tappingDragLock = false; # It's just annoying to have it and be surprised when doing fast movements..
-    additionalOptions = ''
-      # Tapping with 1/2/3 fingers give left/middle/right buttons respectively
+    additionalOptions = lib.mkIf (!config.me.trying-out-wayland) ''
+      # Tapping with 1/2/3 fingers give left/right/middle buttons respectively
       # Ref: https://wiki.archlinux.org/title/libinput#Tapping_button_re-mapping
-      Option "TappingButtonMap" "lmr"
+      Option "TappingButtonMap" "lrm"
     '';
   };
 }

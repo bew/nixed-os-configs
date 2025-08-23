@@ -5,9 +5,10 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  # FIXME: is this necessary? or can be removed?
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm_amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
@@ -29,6 +30,7 @@
     { device = "/dev/disk/by-uuid/c0ca0670-d078-4bcc-868c-96fca452dbc5"; }
   ];
 
+  # FIXME: is this necessary? or can be removed?
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
