@@ -66,6 +66,7 @@ in {
           }
           {
             # Enter -> Shift/Enter
+            # NOTE: for some reason, Shift on Enter key here is never registered by the system 🤔🤔
             KEY = "KEY_ENTER";
             TAP = "KEY_ENTER";
             HOLD = "KEY_RIGHTSHIFT";
