@@ -9,6 +9,7 @@
 
     ../../../presets/os-nixos/audio.nix
     ../../../presets/os-nixos/media-view.nix
+    ../../../presets/os-nixos/media-edit.nix
 
     # Vendored fix for Espanso on wayland
     # Source: https://github.com/NixOS/nixpkgs/pull/328890
