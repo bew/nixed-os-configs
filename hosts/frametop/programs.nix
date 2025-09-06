@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./protonvpn.nix
     ../../presets/os-nixos/firefox
 
     ../../presets/os-nixos/gaming.nix # 󰊴 !
