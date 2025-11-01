@@ -6,6 +6,7 @@
     ../../presets/os-nixos/firefox
 
     ../../presets/os-nixos/gaming.nix # 󰊴 !
+    ../../presets/os-nixos/minecraft.nix
     ../../presets/os-nixos/warez.nix
   ];
 
@@ -17,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     # TODO: add when it's recent enough!
     #   (I don't have bleedingedge repo available here atm)
+    # FIXME: need bleedingedge!
     # wezterm # (❤ )
     alacritty # (in case wezterm broken)
 
@@ -26,7 +28,8 @@
 
     prusa-slicer
 
-    beeper # ⚠ non-free!
+    # FIXME: need bleedingedge!
+    # beeper # ⚠ non-free!
 
     # Add a minimal Sway config, to easily test Wayland stuff from X
     (
