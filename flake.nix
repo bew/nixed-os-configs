@@ -15,6 +15,8 @@
     flake = import ./hosts;
 
     perSystem = { pkgs, ... }: {
+      packages = import ./mypkgs { inherit pkgs; };
+
       devshells.default = {
         packages = with pkgs; [
           just # for repo actions
