@@ -4,16 +4,33 @@ let
 
   # expose inputs
   system-nixpkgs = loadFlake inputs.system-nixpkgs;
+  bleedingedge-nixpkgs = loadFlake inputs.bleedingedge-nixpkgs;
   nixos-hardware = loadFlake inputs.nixos-hardware;
   # note: netdata v2+ is now cloud-only, no local web ui available anymore
   #   so we force the use of the last netdata v1 we have in 24.11
   netdata-nixpkgs = loadFlake inputs.netdata-nixpkgs;
+
+  mylib.pkgSetForSys = system: maybePkgSet: (
+    if maybePkgSet ? legacyPackages then
+      maybePkgSet.legacyPackages.${system}
+    else if maybePkgSet ? packages then
+      maybePkgSet.packages.${system}
+    else
+      maybePkgSet
+  );
+
+  pkgsets = let getPkgSet = mylib.pkgSetForSys system; in rec {
+    stable = getPkgSet system-nixpkgs;
+    bleedingedge = getPkgSet bleedingedge-nixpkgs;
+    mypkgs = import ../../mypkgs/default.nix { pkgs = stable; };
+  };
 
   system = "x86_64-linux";
 in
 
 system-nixpkgs.lib.nixosSystem {
   inherit system;
+  specialArgs.pkgsets = pkgsets;
   modules = [
     {
       imports = [ nixos-hardware.nixosModules.framework-13-7040-amd ];

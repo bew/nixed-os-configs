@@ -8,8 +8,6 @@
     ../../../modules/os-nixos/maybe-trying-out-wayland.nix
   ];
 
-  _module.args.myPkgs = import ../../../mypkgs/default.nix { inherit pkgs; };
-
   console = {
     font = "Lat2-Terminus16";
   };

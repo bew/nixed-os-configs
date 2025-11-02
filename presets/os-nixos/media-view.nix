@@ -1,18 +1,20 @@
-{ pkgs, myPkgs, ... }:
+{ pkgsets, ... }:
+
+let inherit (pkgsets) stable mypkgs; in
 
 {
-  environment.systemPackages = with pkgs; [
-    nomacs
+  environment.systemPackages = [
+    stable.nomacs
 
-    (myPkgs.mpvConfigurable  {
+    (mypkgs.mpvConfigurable  {
       disableDefaultUI = true;
       plugins = [
-        myPkgs.mpvScripts.undoredo
-        myPkgs.mpvScripts.thumbfast
-        myPkgs.mpvScripts.copyTime
-        myPkgs.mpvScripts.modernx # UI plugin
+        mypkgs.mpvScripts.undoredo
+        mypkgs.mpvScripts.thumbfast
+        mypkgs.mpvScripts.copyTime
+        mypkgs.mpvScripts.modernx # UI plugin
 
-        # myPkgs.mpvScripts.uosc # UI plugin
+        # mypkgs.mpvScripts.uosc # UI plugin
         # note: uosc can do many things, but is a little bloated, and doesn't show actual playlist..
         #   proximity and UI animations aren't my thing…
       ];

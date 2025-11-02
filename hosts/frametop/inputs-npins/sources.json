@@ -1,5 +1,17 @@
 {
   "pins": {
+    "bleedingedge-nixpkgs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixpkgs-unstable",
+      "revision": "a7fc11be66bdfb5cdde611ee5ce381c183da8386",
+      "url": "https://github.com/nixos/nixpkgs/archive/a7fc11be66bdfb5cdde611ee5ce381c183da8386.tar.gz",
+      "hash": "0h3gvjbrlkvxhbxpy01n603ixv0pjy19n9kf73rdkchdvqcn70j2"
+    },
     "flake-compat": {
       "type": "Git",
       "repository": {

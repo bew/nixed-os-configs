@@ -1,4 +1,6 @@
-{ pkgs, myPkgs, lib, ... }:
+{ pkgsets, lib, ... }:
+
+let inherit (pkgsets) stable mypkgs; in
 
 {
   imports = [
@@ -15,18 +17,18 @@
   # ⚠ non-free!
   services.teamviewer.enable = true;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     # TODO: add when it's recent enough!
     #   (I don't have bleedingedge repo available here atm)
     # FIXME: need bleedingedge!
     # wezterm # (❤ )
-    alacritty # (in case wezterm broken)
+    stable.alacritty # (in case wezterm broken)
 
     # -- Media / Other
     # @mpv daemon-start <channel> / add <channel> / …
-    (myPkgs.mpv-channel-helpers.override { mpv = "from-PATH"; })
+    (mypkgs.mpv-channel-helpers.override { mpv = "from-PATH"; })
 
-    prusa-slicer
+    stable.prusa-slicer
 
     # FIXME: need bleedingedge!
     # beeper # ⚠ non-free!
