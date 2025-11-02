@@ -15,4 +15,6 @@ in {
   mpv-channel-helpers = callPackage ./mpv-channel-helpers {};
 
   zsa-keymapp = callPackage ./zsa-keymapp {};
+
+  sway-mini-config = callPackage ./sway-mini-config {};
 }
