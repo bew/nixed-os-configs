@@ -10,28 +10,22 @@ let
   #   so we force the use of the last netdata v1 we have in 24.11
   netdata-nixpkgs = loadFlake inputs.netdata-nixpkgs;
 
-  mylib.pkgSetForSys = system: maybePkgSet: (
-    if maybePkgSet ? legacyPackages then
-      maybePkgSet.legacyPackages.${system}
-    else if maybePkgSet ? packages then
-      maybePkgSet.packages.${system}
-    else
-      maybePkgSet
-  );
-
-  pkgsets = let getPkgSet = mylib.pkgSetForSys system; in rec {
-    stable = getPkgSet system-nixpkgs;
-    bleedingedge = getPkgSet bleedingedge-nixpkgs;
-    mypkgs = import ../../mypkgs/default.nix { pkgs = stable; };
-  };
-
   system = "x86_64-linux";
 in
 
 system-nixpkgs.lib.nixosSystem {
   inherit system;
-  specialArgs.pkgsets = pkgsets;
   modules = [
+    ({ pkgsets, ... }: {
+      imports = [ ../../modules/generic/pkgsets.nix ];
+      pkgsets.define = {
+        stable = system-nixpkgs;
+        bleedingedge = bleedingedge-nixpkgs;
+        mypkgs = import ../../mypkgs/default.nix {
+          pkgs = pkgsets.stable; # 🤯
+        };
+      };
+    })
     {
       imports = [ nixos-hardware.nixosModules.framework-13-7040-amd ];
       # Disable fingerprint support (no need)
