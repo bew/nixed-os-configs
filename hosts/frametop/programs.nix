@@ -1,6 +1,6 @@
-{ pkgsets, lib, ... }:
+{ pkgs, pkgsets, lib, ... }:
 
-let inherit (pkgsets) stable mypkgs; in
+let inherit (pkgsets) stable bleedingedge mypkgs; in
 
 {
   imports = [
@@ -18,10 +18,16 @@ let inherit (pkgsets) stable mypkgs; in
   services.teamviewer.enable = true;
 
   environment.systemPackages = [
-    # TODO: add when it's recent enough!
-    #   (I don't have bleedingedge repo available here atm)
-    # FIXME: need bleedingedge!
-    # wezterm # (❤ )
+    (bleedingedge.wezterm.overrideAttrs {
+      patches = [
+        (pkgs.fetchpatch {
+          # Wayland scroll behavior
+          # PR: https://github.com/wezterm/wezterm/pull/6533
+          url = "https://github.com/wezterm/wezterm/pull/6533/commits/55b7c9feea118f63734dbcdeb518cfadea652094.patch";
+          hash = "sha256-S8GZfcgSek03K3RbKDcsA34ucHzxc8nxB6NE5/0CVnM=";
+        })
+      ];
+    })
     stable.alacritty # (in case wezterm broken)
 
     # -- Media / Other
