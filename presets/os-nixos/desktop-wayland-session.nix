@@ -6,6 +6,7 @@
       xorg.xeyes # note: Useful even on Wayland to 'detect' XWayland-based windows
 
       wev # Wayland EVent viewer
+      wl-clipboard # for wl-copy, wl-paste
     ];
   };
 }
