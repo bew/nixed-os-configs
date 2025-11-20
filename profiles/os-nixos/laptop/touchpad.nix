@@ -4,6 +4,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
   services.libinput.touchpad = {
+    # Let's try natural scrolling, it's actually nice!
+    naturalScrolling = true;
     # FIXME: Is there a way to configure the timeout until the touchpad is re-enabled again?
     #   Or a way to disable taps for a bit longer? (drag is not an issue)
     #   -> Or even disable touchpad tap (click) when a non-modifier key is pressed until I drag the mouse around.
