@@ -39,6 +39,9 @@ re *ARGS:
   {{just_exe}} do "$host_name" {{ ARGS }}
   # TODO: make it work when started from host dir 🤔
 
+diff-with-system:
+  # note: depends on `nix-diff-closures.sh` from my dotfiles
+  nix-diff-closures.sh /run/current-system/ result/
 
 # --- Actions for config of given host name
 
